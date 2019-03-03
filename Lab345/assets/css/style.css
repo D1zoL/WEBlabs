@@ -1,0 +1,40 @@
+#field {
+    position: relative;
+    background-size: 100% 100%;
+    float: left;
+}
+
+.back {
+	width: 1000px;
+	height: 600px;
+	position: absolute;
+	background-image: URL('../img/back.png');
+}
+
+.land {
+	width: 1000px;
+	height: 60px;
+	position: absolute;
+	background-image: URL('../img/land.png');
+}
+
+.base {
+	width: 150px;
+	height: 200px;
+	position: absolute;
+	background-image: URL('../img/base.png');
+}
+
+.unit {
+	width: 58px;
+	height: 109px;
+	position: absolute;
+	background-image: URL('../img/unit.png');
+}
+
+.unit_buy {
+	width: 64px;
+	height: 64px;
+	position: absolute;
+	background-image: URL('../img/unit_buy.png');
+}
