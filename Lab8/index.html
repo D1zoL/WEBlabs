@@ -1,0 +1,125 @@
+﻿<html lang="ru">
+	<head>
+		<title>Библиотека</title>
+		<style>
+			body {
+				letter-spacing: 5px;
+				font-size: 14.1pt;
+				font-weight: bold;
+			}
+			
+			.item {
+				width: 320px;
+				height: 150px;
+				border: 3px solid;
+				display: inline-block;
+				margin-top: 40px;
+				margin-left: 40px;
+				padding-left: 10px;
+				background-color: #eeeeee;
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+			
+			.item:hover {
+				border-color: green;
+			}
+			
+			button {
+				width: 320px;
+				height: 40px;
+				foreground-color: #ff0000;
+				background-color: #dddddd;
+				font-size: 14.1pt;
+				font-weight: bold;
+			}
+			
+			.selected {
+				border-color: green;
+				color: green;
+			}
+			
+			button {
+				margin-top: 10px;
+				margin-bottom: 10px;
+			}
+		</style>
+		<script>
+			var types = {Фантастика: true, Драма: true, ОбычнаяКнига: true, СоШрифтомБрайля: true};
+			
+			function filter() {
+				var root = document.getElementById('content');
+				var nodes = root.childNodes;
+				for (var i = 0; i < nodes.length; i++) {
+					if (nodes[i].nodeName != "#text") {
+						var className = nodes[i].className;
+						var split = className.split(' ');
+						var type = split[1];
+						var dist = split[2];
+						var can = true;
+						if (type == "ОбычнаяКнига" && !types.ОбычнаяКнига) can = false;
+						if (type == "СоШрифтомБрайля" && !types.СоШрифтомБрайля) can = false;
+						if (dist == "Фантастика" && !types.Фантастика) can = false;
+						if (dist == "Драма" && !types.Драма) can = false;
+						if (can) nodes[i].style.display = "inline-block"; else nodes[i].style.display = "none";
+					}
+				}
+			}
+			
+			function clicked(value) {
+				var el = document.getElementById(value);
+				types[value] = !types[value];
+				if (types[value]) el.className = "type selected"; else el.className = "type";
+				filter();
+			}
+		</script>
+	</head>
+	<body>
+		<header>
+			<div tabindex="0">Web8</div>
+			<div role="heading" aria-level="1" tabindex="0">
+				Laba 8
+			</div>
+		</header>
+		<nav role="navigation">
+			<div>
+				<button aria-labelledby="отфильтровать контент (Фантастика)" id="Фантастика" onclick="clicked('Фантастика')" class="type selected">Фантастика</button>
+			</div>
+			<div>
+				<button aria-labelledby="отфильтровать контент (Драма)" id="Драма" onclick="clicked('Драма')" class="type selected">Драма</button>
+			</div>
+			<div>
+				<button aria-labelledby="отфильтровать контент (ОбычнаяКнига)" id="ОбычнаяКнига" onclick="clicked('ОбычнаяКнига')" class="type selected">Обычная книга</button>
+			</div>
+			<div>
+				<button aria-labelledby="отфильтровать контент (СоШрифтомБрайля)" id="СоШрифтомБрайля" onclick="clicked('СоШрифтомБрайля')" class="type selected">Со шрифтомб брайля</button>
+			</div>
+		</nav>
+		<main role="main" id="content" aria-live="polite">
+			<div class="item ОбычнаяКнига Фантастика">Обычная книга<br/>Фантастика<br/>"1. КНИГА"</div>
+			<div class="item ОбычнаяКнига Драма">Обычная книга<br/>Драма<br/>"1. КНИГА"</div>
+			<div class="item СоШрифтомБрайля Фантастика">Со шрифтом брайля<br/>Фантастика<br/>"1. КНИГА"</div>
+			<div class="item СоШрифтомБрайля Драма">Со шрифтом брайля<br/>Драма<br/>"1. КНИГА"</div>
+			<div class="item ОбычнаяКнига Фантастика">Обычная книга<br/>Фантастика<br/>"2. КНИГА"</div>
+			<div class="item ОбычнаяКнига Драма">Обычная книга<br/>Драма<br/>"2. КНИГА"</div>
+			<div class="item СоШрифтомБрайля Фантастика">Со шрифтом брайля<br/>Фантастика<br/>"2. КНИГА"</div>
+			<div class="item СоШрифтомБрайля Драма">Со шрифтом брайля<br/>Драма<br/>"2. КНИГА"</div>
+			<div class="item ОбычнаяКнига Фантастика">Обычная книга<br/>Фантастика<br/>"3. КНИГА"</div>
+			<div class="item ОбычнаяКнига Драма">Обычная книга<br/>Драма<br/>"3. КНИГА"</div>
+			<div class="item СоШрифтомБрайля Фантастика">Со шрифтом брайля<br/>Фантастика<br/>"3. КНИГА"</div>
+			<div class="item СоШрифтомБрайля Драма">Со шрифтом брайля<br/>Драма<br/>"3. КНИГА"</div>
+			<div class="item ОбычнаяКнига Фантастика">Обычная книга<br/>Фантастика<br/>"4. КНИГА"</div>
+			<div class="item ОбычнаяКнига Драма">Обычная книга<br/>Драма<br/>"4. КНИГА"</div>
+			<div class="item СоШрифтомБрайля Фантастика">Со шрифтом брайля<br/>Фантастика<br/>"4. КНИГА"</div>
+			<div class="item СоШрифтомБрайля Драма">Со шрифтом брайля<br/>Драма<br/>"4. КНИГА"</div>
+			<div class="item ОбычнаяКнига Фантастика">Обычная книга<br/>Фантастика<br/>"5. КНИГА"</div>
+			<div class="item ОбычнаяКнига Драма">Обычная книга<br/>Драма<br/>"5. КНИГА"</div>
+			<div class="item СоШрифтомБрайля Фантастика">Со шрифтом брайля<br/>Фантастика<br/>"5. КНИГА"</div>
+			<div class="item СоШрифтомБрайля Драма">Со шрифтом брайля<br/>Драма<br/>"5. КНИГА"</div>
+		</main>
+	</body>
+</html>
