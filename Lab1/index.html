@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Быстрый старт. Размещение интерактивной карты на странице</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+        ymaps.ready(init);
+        var myMap;
+
+        function init(){ 
+            myMap = new ymaps.Map("map", {
+                center: [55.76, 37.64],
+                zoom: 10
+            }); 
+            
+            myMap.geoObjects
+				.add(new ymaps.Placemark([55.753413, 37.614273], { balloonContent: 'Александровский сад', hintContent: 'Александровский сад'},
+					{preset: 'islands#blueDotIcon'}))
+				.add(new ymaps.Placemark([55.772175, 37.613118], { balloonContent: 'Соборная палата', hintContent: 'Соборная палата'},
+					{preset: 'islands#redDotIcon'}))
+				.add(new ymaps.Placemark([55.753933, 37.620735], { balloonContent: 'Красная площадь', hintContent: 'Красная площадь'},
+					{preset: 'islands#darkOrangeDotIcon'}))
+				.add(new ymaps.Placemark([55.736786, 37.519997], { balloonContent: 'Триумфальная арка', hintContent: 'Триумфальная арка'},
+					{preset: 'islands#nightDotIcon'}))
+				.add(new ymaps.Placemark([55.853432, 37.631667], { balloonContent: 'Усадьба Свиблово', hintContent: 'Усадьба Свиблово'},
+					{preset: 'islands#pinkDotIcon'}))
+				.add(new ymaps.Placemark([55.751482, 37.619126], { balloonContent: 'Кремль', hintContent: 'Кремль'},
+					{preset: 'islands#yellowDotIcon'}))
+				.add(new ymaps.Placemark([55.703050, 37.531014], { balloonContent: 'Главное здание МГУ имени М. В. Ломоносова', hintContent: 'Главное здание МГУ имени М. В. Ломоносова'},
+					{preset: 'islands#violetDotIcon'}));
+        }
+    </script>
+</head>
+<body>
+    <div id="map" style="width: 600px; height: 400px"></div>
+</body>
+</html>
