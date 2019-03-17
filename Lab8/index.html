@@ -49,7 +49,7 @@
 			}
 		</style>
 		<script>
-			var types = {Фантастика: true, Драма: true, ОбычнаяКнига: true, СоШрифтомБрайля: true};
+			var types = {Fantasy: true, Drama: true, CommonBook: true, Braille: true};
 			
 			function filter() {
 				var root = document.getElementById('content');
@@ -61,10 +61,10 @@
 						var type = split[1];
 						var dist = split[2];
 						var can = true;
-						if (type == "ОбычнаяКнига" && !types.ОбычнаяКнига) can = false;
-						if (type == "СоШрифтомБрайля" && !types.СоШрифтомБрайля) can = false;
-						if (dist == "Фантастика" && !types.Фантастика) can = false;
-						if (dist == "Драма" && !types.Драма) can = false;
+						if (type == "CommonBook" && !types.CommonBook) can = false;
+						if (type == "Braille" && !types.Braille) can = false;
+						if (dist == "Fantasy" && !types.Fantasy) can = false;
+						if (dist == "Drama" && !types.Drama) can = false;
 						if (can) nodes[i].style.display = "inline-block"; else nodes[i].style.display = "none";
 					}
 				}
@@ -81,45 +81,43 @@
 	<body>
 		<header>
 			<div tabindex="0">Web8</div>
-			<div role="heading" aria-level="1" tabindex="0">
-				Laba 8
-			</div>
+			<h3>Laba 8 </h3>
 		</header>
-		<nav role="navigation">
+		<nav>
 			<div>
-				<button aria-labelledby="отфильтровать контент (Фантастика)" id="Фантастика" onclick="clicked('Фантастика')" class="type selected">Фантастика</button>
+				<button aria-label="filter (Fantasy)" id="Fantasy" onclick="clicked('Fantasy')" class="type selected">Fantasy</button>
 			</div>
 			<div>
-				<button aria-labelledby="отфильтровать контент (Драма)" id="Драма" onclick="clicked('Драма')" class="type selected">Драма</button>
+				<button aria-label="filter (Drama)" id="Drama" onclick="clicked('Drama')" class="type selected">Drama</button>
 			</div>
 			<div>
-				<button aria-labelledby="отфильтровать контент (ОбычнаяКнига)" id="ОбычнаяКнига" onclick="clicked('ОбычнаяКнига')" class="type selected">Обычная книга</button>
+				<button aria-label="filter (CommonBook)" id="CommonBook" onclick="clicked('CommonBook')" class="type selected">Common Book</button>
 			</div>
 			<div>
-				<button aria-labelledby="отфильтровать контент (СоШрифтомБрайля)" id="СоШрифтомБрайля" onclick="clicked('СоШрифтомБрайля')" class="type selected">Со шрифтомб брайля</button>
+				<button aria-label="filter (Braille)" id="Braille" onclick="clicked('Braille')" class="type selected">With Braille</button>
 			</div>
 		</nav>
 		<main role="main" id="content" aria-live="polite">
-			<div class="item ОбычнаяКнига Фантастика">Обычная книга<br/>Фантастика<br/>"1. КНИГА"</div>
-			<div class="item ОбычнаяКнига Драма">Обычная книга<br/>Драма<br/>"1. КНИГА"</div>
-			<div class="item СоШрифтомБрайля Фантастика">Со шрифтом брайля<br/>Фантастика<br/>"1. КНИГА"</div>
-			<div class="item СоШрифтомБрайля Драма">Со шрифтом брайля<br/>Драма<br/>"1. КНИГА"</div>
-			<div class="item ОбычнаяКнига Фантастика">Обычная книга<br/>Фантастика<br/>"2. КНИГА"</div>
-			<div class="item ОбычнаяКнига Драма">Обычная книга<br/>Драма<br/>"2. КНИГА"</div>
-			<div class="item СоШрифтомБрайля Фантастика">Со шрифтом брайля<br/>Фантастика<br/>"2. КНИГА"</div>
-			<div class="item СоШрифтомБрайля Драма">Со шрифтом брайля<br/>Драма<br/>"2. КНИГА"</div>
-			<div class="item ОбычнаяКнига Фантастика">Обычная книга<br/>Фантастика<br/>"3. КНИГА"</div>
-			<div class="item ОбычнаяКнига Драма">Обычная книга<br/>Драма<br/>"3. КНИГА"</div>
-			<div class="item СоШрифтомБрайля Фантастика">Со шрифтом брайля<br/>Фантастика<br/>"3. КНИГА"</div>
-			<div class="item СоШрифтомБрайля Драма">Со шрифтом брайля<br/>Драма<br/>"3. КНИГА"</div>
-			<div class="item ОбычнаяКнига Фантастика">Обычная книга<br/>Фантастика<br/>"4. КНИГА"</div>
-			<div class="item ОбычнаяКнига Драма">Обычная книга<br/>Драма<br/>"4. КНИГА"</div>
-			<div class="item СоШрифтомБрайля Фантастика">Со шрифтом брайля<br/>Фантастика<br/>"4. КНИГА"</div>
-			<div class="item СоШрифтомБрайля Драма">Со шрифтом брайля<br/>Драма<br/>"4. КНИГА"</div>
-			<div class="item ОбычнаяКнига Фантастика">Обычная книга<br/>Фантастика<br/>"5. КНИГА"</div>
-			<div class="item ОбычнаяКнига Драма">Обычная книга<br/>Драма<br/>"5. КНИГА"</div>
-			<div class="item СоШрифтомБрайля Фантастика">Со шрифтом брайля<br/>Фантастика<br/>"5. КНИГА"</div>
-			<div class="item СоШрифтомБрайля Драма">Со шрифтом брайля<br/>Драма<br/>"5. КНИГА"</div>
+			<div class="item CommonBook Fantasy">Common Book<br/>Fantasy<br/>"1. Book"</div>
+			<div class="item CommonBook Drama">Common Book<br/>Drama<br/>"1. Book"</div>
+			<div class="item Braille Fantasy">With Braille<br/>Fantasy<br/>"1. Book"</div>
+			<div class="item Braille Drama">With Braille<br/>Drama<br/>"1. Book"</div>
+			<div class="item CommonBook Fantasy">Common Book<br/>Fantasy<br/>"2. Book"</div>
+			<div class="item CommonBook Drama">Common Book<br/>Drama<br/>"2. Book"</div>
+			<div class="item Braille Fantasy">With Braille<br/>Fantasy<br/>"2. Book"</div>
+			<div class="item Braille Drama">With Braille<br/>Drama<br/>"2. Book"</div>
+			<div class="item CommonBook Fantasy">Common Book<br/>Fantasy<br/>"3. Book"</div>
+			<div class="item CommonBook Drama">Common Book<br/>Drama<br/>"3. Book"</div>
+			<div class="item Braille Fantasy">With Braille<br/>Fantasy<br/>"3. Book"</div>
+			<div class="item Braille Drama">With Braille<br/>Drama<br/>"3. Book"</div>
+			<div class="item CommonBook Fantasy">Common Book<br/>Fantasy<br/>"4. Book"</div>
+			<div class="item CommonBook Drama">Common Book<br/>Drama<br/>"4. Book"</div>
+			<div class="item Braille Fantasy">With Braille<br/>Fantasy<br/>"4. Book"</div>
+			<div class="item Braille Drama">With Braille<br/>Drama<br/>"4. Book"</div>
+			<div class="item CommonBook Fantasy">Common Book<br/>Fantasy<br/>"5. Book"</div>
+			<div class="item CommonBook Drama">Common Book<br/>Drama<br/>"5. Book"</div>
+			<div class="item Braille Fantasy">With Braille<br/>Fantasy<br/>"5. Book"</div>
+			<div class="item Braille Drama">With Braille<br/>Drama<br/>"5. Book"</div>
 		</main>
 	</body>
 </html>
